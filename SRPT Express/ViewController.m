@@ -10,6 +10,7 @@
 #import "AutoScrollView.h"
 #import "ICSDrawerController.h"
 #import "ManageViewController.h"
+#import "DeliveryViewController.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) UIButton *menu;
@@ -158,6 +159,7 @@
     self.other1.frame = CGOther1;
     self.other1.backgroundColor = [UIColor colorWithRed: 60 / 255.f green: 154/ 255.f blue: 229 / 255.f alpha:1];
     self.other1.layer.cornerRadius = 8;
+    [self.other1 addTarget: self action: @selector(toDeliveryViewController) forControlEvents: UIControlEventTouchUpInside];
     [self.view addSubview: self.other1];
     
     UILabel *f11 = [[UILabel alloc] initWithFrame: CGRectMake(20, 438, 180, 20)];
@@ -194,6 +196,11 @@
 - (void) toManageViewController {
     ManageViewController *mvc = [[ManageViewController alloc] init];
     [self.navigationController pushViewController: mvc animated: YES];
+}
+
+- (void) toDeliveryViewController {
+    DeliveryViewController *cvc = [[DeliveryViewController alloc] init];
+    [self.navigationController pushViewController: cvc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
