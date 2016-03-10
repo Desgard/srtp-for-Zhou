@@ -118,13 +118,13 @@
     CGRect CGIcon_3 = CGRectMake(x / 8.f * 5 - 20, y, 40, 40);
     self.icon3 = [UIButton buttonWithType: UIButtonTypeCustom];
     self.icon3.frame = CGIcon_3;
-    [self.icon3 setImage: [UIImage imageNamed: @"icon_3.png"] forState: UIControlStateNormal];
+    [self.icon3 setImage: [UIImage imageNamed: @"icon_4.png"] forState: UIControlStateNormal];
     [self.view addSubview: self.icon3];
     
     CGRect CGIcon_4 = CGRectMake(x / 8.f * 7 - 20, y, 40, 40);
     self.icon4 = [UIButton buttonWithType: UIButtonTypeCustom];
     self.icon4.frame = CGIcon_4;
-    [self.icon4 setImage: [UIImage imageNamed: @"icon_4.png"] forState: UIControlStateNormal];
+    [self.icon4 setImage: [UIImage imageNamed: @"icon_3.png"] forState: UIControlStateNormal];
     [self.view addSubview: self.icon4];
     
     CGRect CGIconText1 = CGRectMake(0, y + 45, self.view.frame.size.width / 4, 20);
