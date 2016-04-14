@@ -11,6 +11,7 @@
 #import "Car2TableViewCell.h"
 #import "Car3TableViewCell.h"
 #import "SendViewController.h"
+#import "ReceiveViewController.h"
 #import "ShowLineViewController.h"
 
 @interface DeliveryViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -51,6 +52,9 @@
         SendViewController *svc = [[SendViewController alloc] init];
         [self.navigationController pushViewController:svc  animated: YES];
     } else if (indexPath.row == 1) {
+        ReceiveViewController *rvc = [[ReceiveViewController alloc] init];
+        [self.navigationController pushViewController:rvc animated: YES];
+    } else if (indexPath.row == 2) {
         [self test];
     }
 }
@@ -129,11 +133,15 @@
 
 - (IBAction)toShowLine:(id)sender {
     ShowLineViewController *slvc = [[ShowLineViewController alloc] init];
+    slvc.start = self.start;
+    slvc.end = self.end;
+    
     [self.navigationController pushViewController: slvc animated: YES];
 }
 
 - (void) test {
     NSLog(@"%f %f", self.start.latitude, self.start.longitude);
+    NSLog(@"%f %f", self.end.latitude, self.end.longitude);
 }
 
 @end

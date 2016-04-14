@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) AMapLocationManager *locationManager;
 @property (nonatomic, strong) MAPointAnnotation *pointAnnotation;
+
 @property (nonatomic, strong) MAPointAnnotation *endAnnotation;
 @property (nonatomic, strong) MAPointAnnotation *beginAnnotation;
 @property (nonatomic) CLLocationCoordinate2D touchMapCoordinate;
@@ -48,12 +49,12 @@
  */
 - (void)addBeginAndEndAnnotation {
     _endAnnotation = [[MAPointAnnotation alloc] init];
-    CLLocationCoordinate2D coordinate = {30.655593,104.073803};
+    CLLocationCoordinate2D coordinate = {self.start.latitude, self.start.longitude};
     [_endAnnotation setCoordinate:coordinate];
     _endAnnotation.title		= @"终点";
     [_mapView addAnnotation:_endAnnotation];
     _beginAnnotation = [[MAPointAnnotation alloc] init];
-    CLLocationCoordinate2D coordinatebegin = {30.612339,104.071503};
+    CLLocationCoordinate2D coordinatebegin = {self.end.latitude, self.end.longitude};
     [_beginAnnotation setCoordinate:coordinatebegin];
     _beginAnnotation.title		= @"起点";
     [_mapView addAnnotation:_beginAnnotation];
@@ -84,9 +85,9 @@
     naviRequest.requireExtension = YES;
     
     //起点经纬度
-    naviRequest.origin = [AMapGeoPoint locationWithLatitude:30.655593 longitude:104.073803 ];
+    naviRequest.origin = [AMapGeoPoint locationWithLatitude: self.start.latitude longitude: self.start.longitude ];
     //目的地经纬度
-    naviRequest.destination = [AMapGeoPoint locationWithLatitude:30.612339 longitude:104.071503];
+    naviRequest.destination = [AMapGeoPoint locationWithLatitude:self.end.latitude longitude:self.end.longitude];
     
     
     //发起路径搜索

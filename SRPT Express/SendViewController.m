@@ -57,11 +57,6 @@
     self.locationManager = [[AMapLocationManager alloc] init];
     self.locationManager.delegate = self;
     
-    
-    
-    
-    
-    
     [self.view addSubview:_mapView];
     [self.locationManager startUpdatingLocation];
     
