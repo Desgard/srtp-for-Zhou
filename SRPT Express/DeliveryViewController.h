@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
 
 @interface DeliveryViewController : UIViewController
+
+@property (nonatomic) CLLocationCoordinate2D start;
+@property (nonatomic) CLLocationCoordinate2D end;
 
 @end

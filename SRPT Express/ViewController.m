@@ -59,7 +59,7 @@
     [self.view addSubview: NavBar];
     
     UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake(0, 35, self.view.frame.size.width, 30)];
-    title.text = @"易货嘀";
+    title.text = @"玄武镖局";
     title.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview: title];
     

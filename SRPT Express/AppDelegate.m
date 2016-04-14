@@ -10,6 +10,8 @@
 #import "ICSDrawerController.h"
 #import "ViewController.h"
 #import "MenuViewController.h"
+#import <AMapNaviKit/MAMapKit.h>
+
 
 @interface AppDelegate ()
 
@@ -27,6 +29,8 @@
     [self.window setRootViewController: navCtrler];
     drawer.title = @"易货嘀";
     navCtrler.navigationBarHidden = YES;
+    
+    [MAMapServices sharedServices].apiKey = @"c8964a684ca8b41fa1d9218d698a0056";
     return YES;
 }
 

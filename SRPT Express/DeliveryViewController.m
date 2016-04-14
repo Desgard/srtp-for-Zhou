@@ -10,10 +10,13 @@
 #import "CarTableViewCell.h"
 #import "Car2TableViewCell.h"
 #import "Car3TableViewCell.h"
+#import "SendViewController.h"
+#import "ShowLineViewController.h"
 
 @interface DeliveryViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *first;
+@property (weak, nonatomic) IBOutlet UIButton *post;
 
 @end
 
@@ -41,6 +44,15 @@
 
 - (NSInteger) tableView:(UITableView *)tableView :(NSIndexPath *)indexPath {
     return 3;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        SendViewController *svc = [[SendViewController alloc] init];
+        [self.navigationController pushViewController:svc  animated: YES];
+    } else if (indexPath.row == 1) {
+        [self test];
+    }
 }
 
 - (CGFloat) tableView:(UITableView *) tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -115,9 +127,13 @@
     return cell;
 }
 
+- (IBAction)toShowLine:(id)sender {
+    ShowLineViewController *slvc = [[ShowLineViewController alloc] init];
+    [self.navigationController pushViewController: slvc animated: YES];
+}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void) test {
+    NSLog(@"%f %f", self.start.latitude, self.start.longitude);
 }
 
 @end
